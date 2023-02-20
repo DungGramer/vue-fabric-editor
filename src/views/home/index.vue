@@ -23,24 +23,32 @@
       </Header>
       <Content style="display: flex; height: calc(100vh - 64px)">
         <div v-if="show" style="width: 380px; height: 100%; background: #fff; display: flex">
-          <Menu :active-name="menuActive" accordion @on-select="(activeIndex) => (menuActive = activeIndex)"
-            width="65px">
+          <Menu
+            :active-name="menuActive"
+            accordion
+            @on-select="(activeIndex) => (menuActive = activeIndex)"
+            width="65px"
+          >
             <MenuItem :name="1" class="menu-item">
-            <Icon type="md-book" size="24" />
-            <div>{{ $t("templates") }}</div>
+              <Icon type="md-book" size="24" />
+              <div>{{ $t('templates') }}</div>
             </MenuItem>
             <MenuItem :name="2" class="menu-item">
-            <Icon type="md-images" size="24" />
+              <Icon type="md-images" size="24" />
 
-            <div>{{ $t("elements") }}</div>
+              <div>{{ $t('elements') }}</div>
             </MenuItem>
             <MenuItem :name="3" class="menu-item">
               <Icon type="md-paper-plane" size="24" />
-              <div>{{ $t("background") }}</div>
+              <div>{{ $t('background') }}</div>
             </MenuItem>
             <MenuItem :name="4" class="menu-item">
               <Icon type="md-reorder" size="24" />
-              <div>{{ $t("layers") }}</div>
+              <div>{{ $t('layers') }}</div>
+            </MenuItem>
+            <MenuItem :name="5" class="menu-item">
+              <Icon type="md-brush" size="24" />
+              <div>{{ $t('Brush') }}</div>
             </MenuItem>
           </Menu>
           <div class="content">
@@ -59,7 +67,10 @@
               <bg-bar></bg-bar>
             </div>
             <div v-show="menuActive === 4" class="left-panel">
-              <layer ></layer>
+              <layer></layer>
+            </div>
+            <div v-show="menuActive === 5" class="left-panel">
+              <brush></brush>
             </div>
           </div>
         </div>
@@ -73,16 +84,9 @@
           </div>
         </div>
         <!-- 属性区域 380-->
-        <div
-          style="
-            width: 530px;
-            height: 100%;
-            padding: 10px;
-            overflow-y: auto;
-            background: #fff;
-          ">
+        <div style="width: 530px; height: 100%; padding: 10px; overflow-y: auto; background: #fff">
           <history v-if="show"></history>
-          <div v-if="show" style="padding-top:10px">
+          <div v-if="show" style="padding-top: 10px">
             <lock></lock>
             &nbsp;
             <dele></dele>
@@ -97,7 +101,6 @@
 </template>
 
 <script>
-
 // 导入元素
 import importJSON from '@/components/importJSON.vue';
 import importFile from '@/components/importFile.vue';
@@ -120,6 +123,7 @@ import tools from '@/components/tools.vue';
 import svgEl from '@/components/svgEl.vue';
 import bgBar from '@/components/bgBar.vue';
 import setSize from '@/components/setSize.vue';
+import brush from '@/components/brush.vue';
 
 // 右侧组件
 import history from '@/components/history.vue';
@@ -152,7 +156,28 @@ export default {
     };
   },
   components: {
-    setSize, tools, bgBar, lock, layer, align, attribute, dele, importFile, save, lang, importJSON, clone, flip, importTmpl, centerAlign, group, zoom, svgEl, history, mouseMenu,
+    setSize,
+    tools,
+    bgBar,
+    lock,
+    layer,
+    align,
+    attribute,
+    dele,
+    importFile,
+    save,
+    lang,
+    importJSON,
+    clone,
+    flip,
+    importTmpl,
+    centerAlign,
+    group,
+    zoom,
+    svgEl,
+    history,
+    mouseMenu,
+    brush,
   },
   created() {
     this.$Spin.show();
@@ -181,7 +206,7 @@ export default {
   box-sizing: border-box;
   font-size: 12px;
 
-  &>i {
+  & > i {
     margin: 0;
   }
 }
