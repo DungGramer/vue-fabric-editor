@@ -1,10 +1,13 @@
 <template>
-  <p>Brush here</p>
+  <button @click="big">Toggle Draw</button>
 </template>
 
 <script>
+import select from '@/mixins/select';
+
 export default {
   name: 'BrushTool',
+  mixins: [select],
   data() {
     return {
       canvas: null,
@@ -12,6 +15,14 @@ export default {
       isDrawingMode: false,
     };
   },
+  // computed: {
+  //   toggleDraw() {
+  //     this.canvas.editor.editorWorkspace.toggleDraw();
+  //   },
+  //   big() {
+  //     this.canvas.editor.editorWorkspace.big();
+  //   },
+  // },
 };
 </script>
 

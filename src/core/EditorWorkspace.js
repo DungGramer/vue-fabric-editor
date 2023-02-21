@@ -237,6 +237,14 @@ class EditorWorkspace {
     this.canvas.renderAll();
     this.canvas.requestRenderAll();
   }
+
+  toggleDraw() {
+    this.canvas.isDrawingMode = !this.canvas.isDrawingMode;
+    if (this.canvas.isDrawingMode) {
+      this.canvas.freeDrawingBrush.width = 1;
+      this.canvas.freeDrawingBrush.color = '#000';
+    }
+  }
 }
 
 export default EditorWorkspace;
