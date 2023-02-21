@@ -46,10 +46,10 @@
               <Icon type="md-reorder" size="24" />
               <div>{{ $t('layers') }}</div>
             </MenuItem>
-            <MenuItem :name="5" class="menu-item">
+            <!-- <MenuItem :name="5" class="menu-item">
               <Icon type="md-brush" size="24" />
               <div>{{ $t('Brush') }}</div>
-            </MenuItem>
+            </MenuItem> -->
           </Menu>
           <div class="content">
             <!-- 生成模板 -->
@@ -69,9 +69,9 @@
             <div v-show="menuActive === 4" class="left-panel">
               <layer></layer>
             </div>
-            <div v-show="menuActive === 5" class="left-panel">
+            <!-- <div v-show="menuActive === 5" class="left-panel">
               <brush></brush>
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- 画布区域 -->
@@ -123,7 +123,7 @@ import tools from '@/components/tools.vue';
 import svgEl from '@/components/svgEl.vue';
 import bgBar from '@/components/bgBar.vue';
 import setSize from '@/components/setSize.vue';
-import brush from '@/components/brush.vue';
+// import brush from '@/components/brush.vue';
 
 // 右侧组件
 import history from '@/components/history.vue';
@@ -177,7 +177,7 @@ export default {
     svgEl,
     history,
     mouseMenu,
-    brush,
+    // brush,
   },
   created() {
     this.$Spin.show();
