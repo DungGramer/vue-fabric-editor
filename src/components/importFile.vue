@@ -55,6 +55,7 @@
 import { getImgStr } from '@/utils/utils';
 import select from '@/mixins/select';
 import { v4 as uuid } from 'uuid';
+import { UploadImg } from '@/services/api/index';
 
 export default {
   name: 'ToolBar',
@@ -104,6 +105,10 @@ export default {
     handleUploadImg(file) {
       getImgStr(file).then((res) => {
         this.imgFile = res;
+      });
+
+      UploadImg(file).then((res) => {
+        console.log('📕 res - 111:importFile.vue \n', res);
       });
     },
     // 插入SVG
